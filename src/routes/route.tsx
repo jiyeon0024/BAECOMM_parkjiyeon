@@ -6,7 +6,7 @@ type routeProps = {};
 
 const Rout = (props: routeProps) => {
   const pid = useParams();
-  console.log(pid);
+
   return (
     <BrowserRouter>
       <Routes>

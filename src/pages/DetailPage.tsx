@@ -8,7 +8,9 @@ import { useProductsStore } from "../stores/productsStore";
 // type Props = {};
 
 const Container = styled.div`
-  max-width: 70%;
+  max-width: 90%;
+  width: 700px;
+
   margin: 20px auto;
 `;
 
@@ -39,10 +41,10 @@ const DetailBox = styled.div`
 const Img = styled.img`
   border-radius: 10px 10px 60px 10px;
   height: 500px;
-  background-color: lightgray;
+  background-color: white;
   margin-bottom: 15px;
-  object-fit: cover;
-  object-position: left;
+  object-fit: fill;
+  object-position: center;
 `;
 
 const Brand = styled.h2`
