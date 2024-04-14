@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
+import { useProductsStore } from "../stores/productsStore";
+import { Link } from "react-router-dom";
 
 type Props = { data: any };
 
@@ -32,7 +34,6 @@ const Brand = styled.p`
 `;
 
 const Title = styled.p`
-  /* color: gray; */
   font-weight: normal;
   background-color: white;
 `;
@@ -52,19 +53,32 @@ const Flex = styled.div`
   gap: 10px;
 `;
 
+const Background = styled.div`
+  background-color: white;
+`;
+
 const ProductCard = (data: Props) => {
-  // console.log(data);
+  const [searched] = useProductsStore((state: any) => [state.searched]);
+  const restoreScroll = () => {
+    if (searched) {
+      sessionStorage.setItem("scrollPos", window.scrollY.toString());
+    }
+  };
+
   return (
     <CardContainer>
-      <Img src={data.data.thumbnail} />
+      <Img src={data?.data?.thumbnail} />
       <Flex>
         <Brand>{data.data.brand}</Brand>
-        <Title>{data.data.title}</Title>
+        <Title>{data?.data?.title}</Title>
       </Flex>
 
       <Price>Price: {data.data.price}</Price>
-
-      <Button>Buy Now</Button>
+      <Background>
+        <Link to={`/pages/detailPage/${data.data.id}`} onClick={restoreScroll}>
+          <Button>상세페이지 </Button>
+        </Link>
+      </Background>
     </CardContainer>
   );
 };

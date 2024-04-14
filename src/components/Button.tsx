@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-type Props = { children: string; onClick?: any };
+type Props = {
+  children: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+};
 
 const Btn = styled.button`
   background-color: #10b981;

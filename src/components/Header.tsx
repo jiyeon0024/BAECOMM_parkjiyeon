@@ -4,7 +4,6 @@ import styled from "styled-components";
 type Props = {};
 
 const HeaderContainer = styled.div`
-  /* width: 100%; */
   height: 150px;
   border-radius: 10px;
   margin-top: 10px;
